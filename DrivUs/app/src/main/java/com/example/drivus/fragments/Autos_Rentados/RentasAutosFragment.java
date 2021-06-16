@@ -36,13 +36,6 @@ public class RentasAutosFragment extends Fragment {
     }
     public void init(RecyclerView v) {
         elementos_carros = new ArrayList<>();
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "En renta", "7:00", "13-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "6-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "8-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "5-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "4-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "4-Junio-2021"));
-        elementos_carros.add(new elementos_listas_carros("Toyota", "toyota","$50000", "2009", "15000KM/H", "gasolina", "automatico", "Completado", "7:00", "5-Junio-2021"));
 
         ListAdapter_etiquetas listAdapter = new ListAdapter_etiquetas(elementos_carros, RentasAutosFragment.super.getContext());
         v.setHasFixedSize(true);

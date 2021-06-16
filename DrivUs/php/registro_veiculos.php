@@ -8,8 +8,6 @@ $mm = $_GET['marca'];
 $col =$_GET['color'];
 $pla =$_GET['placas'];
 $año =$_GET['año'];
-$km =$_GET['kilometraje'];
-$precio =$_GET['precio'];
 
 
 $insert="INSERT INTO 
@@ -18,16 +16,12 @@ veiculos(modelo
 ,color
 ,placas
 ,año
-,kilometraje
-,precio
 )
     values('{$md}'
         ,'{$mm}'
         ,'{$col}'
         ,'{$pla}'
         ,'{$año}'
-        ,'{$km}'
-        ,'{$precio}'
     )";
 
 
@@ -47,9 +41,14 @@ $resulttado_insert=mysqli_query($conexion,$insert);
         echo json_encode($json);
     }else
     {   
-        $resulta["placas"]='no registra';
+        $resulta["nombre"]='no registra';
+        $resulta["apellidop"]='no registra';
+        $resulta["apellidom"]='no registra';
+        $resulta["genero"]='no registra';
+        $resulta["fecha_nac"]='no registra';
+        $resulta["correo"]='no registra';
+        $resulta["contraseña"]='no registra';
         $json['veiculos'][]=$resulta;
         echo json_encode($json);
     }
-}   
 ?>

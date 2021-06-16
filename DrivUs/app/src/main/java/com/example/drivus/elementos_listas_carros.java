@@ -1,8 +1,16 @@
 package com.example.drivus;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
 public class elementos_listas_carros {
+
+    public String id;
     public String nombre;
     public String marca;
+    public String placas;
+    public String color;
     public String precio;
     public String anioo;
     public String kilometraje;
@@ -11,18 +19,56 @@ public class elementos_listas_carros {
     public String status;
     public String hora;
     public String fecha;
+    public String dato;
+    public Bitmap imagen;
+    public String rutaImagen;
 
-    public elementos_listas_carros(String nombre, String marca, String precio, String anioo, String kilometraje, String combustible, String cambios, String status, String hora, String fecha) {
-        this.nombre = nombre;
-        this.marca = marca;
-        this.precio = precio;
-        this.anioo = anioo;
-        this.kilometraje = kilometraje;
-        this.combustible = combustible;
-        this.cambios = cambios;
-        this.status = status;
-        this.hora = hora;
-        this.fecha = fecha;
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+
+        try {
+            byte[] byteCode= Base64.decode(dato,Base64.DEFAULT);
+            //this.imagen= BitmapFactory.decodeByteArray(byteCode,0,byteCode.length);
+
+            int alto=99;//alto en pixeles
+            int ancho=50;//ancho en pixeles
+
+            Bitmap foto= BitmapFactory.decodeByteArray(byteCode,0,byteCode.length);
+            this.imagen=Bitmap.createScaledBitmap(foto,alto,ancho,true);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public Bitmap getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Bitmap imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -39,6 +85,22 @@ public class elementos_listas_carros {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getPlacas() {
+        return placas;
+    }
+
+    public void setPlacas(String placas) {
+        this.placas = placas;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getPrecio() {
@@ -104,6 +166,8 @@ public class elementos_listas_carros {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+
 
 
 }
