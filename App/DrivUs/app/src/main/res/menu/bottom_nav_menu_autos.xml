@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeAutosFragment"
+        android:icon="@drawable/home_selector"
+        android:title="Inicio"
+        />
+
+    <item
+        android:id="@+id/rentasAutosFragment"
+        android:icon="@drawable/rentar_selector"
+        android:title="Rentas"
+        />
+
+    <item
+        android:id="@+id/perfilAutosFragment"
+        android:icon="@drawable/account_selector"
+        android:title="Perfil"
+        />
+</menu>

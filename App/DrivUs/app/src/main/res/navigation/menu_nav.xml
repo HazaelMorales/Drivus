@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_nav"
+    app:startDestination="@id/homeAutosFragment">
+
+    <fragment
+        android:id="@+id/rentasAutosFragment"
+        android:name="com.example.drivus.fragments.Autos_Rentados.RentasAutosFragment"
+        android:label="fragment_rentas_autos"
+        tools:layout="@layout/fragment_rentas_autos" />
+    <fragment
+        android:id="@+id/perfilAutosFragment"
+        android:name="com.example.drivus.fragments.perfil.PerfilAutosFragment"
+        android:label="fragment_perfil_autos"
+        tools:layout="@layout/fragment_perfil_autos" />
+    <fragment
+        android:id="@+id/homeAutosFragment"
+        android:name="com.example.drivus.fragments.home.HomeAutosFragment"
+        android:label="fragment_home_autos"
+        tools:layout="@layout/fragment_home_autos" />
+</navigation>
