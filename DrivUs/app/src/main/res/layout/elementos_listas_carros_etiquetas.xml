@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                android:src="@drawable/account_selector" />
+                app:srcCompat="@drawable/account_selector" />
             <LinearLayout
                 android:id="@+id/datos_auto"
                 android:layout_width="match_parent"

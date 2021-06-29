@@ -14,19 +14,19 @@
         android:theme="@style/Theme.DrivUs"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".Inicio_Prueba">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Inicio_Prueba"/>
         <activity android:name=".Registro_Direccion" />
         <activity android:name=".RegistroFinalUsuarioEmail" />
         <activity android:name=".Registro_Telefono" />
         <activity android:name=".Registro_Genero" />
         <activity android:name=".Registro_FechaNacimiento" />
         <activity android:name=".Registro_Nombre" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 </manifest>

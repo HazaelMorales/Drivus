@@ -17,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,25 +27,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etLogin_Email, etLogin_Pass;
-    Button btnLogin;
-    TextView btnRegistrar;
+    TextInputLayout etLogin_Email, etLogin_Pass;
+    MaterialButton bnLogin, bnSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity);
-        etLogin_Email = (EditText) findViewById(R.id.editEmail);
-        etLogin_Pass = (EditText) findViewById(R.id.editPassword);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnRegistrar = (TextView) findViewById(R.id.txtRegistrar);
+        etLogin_Email = (TextInputLayout) findViewById(R.id.editEmail);
+        etLogin_Pass = (TextInputLayout) findViewById(R.id.editPassword);
+        bnLogin = (MaterialButton) findViewById(R.id.btnLogin);
+        bnSignUp = (MaterialButton) findViewById(R.id.btnSignUp);
 
-        btnLogin.setOnClickListener(this);
-        btnRegistrar.setOnClickListener(this);
+        bnLogin.setOnClickListener(this);
+        bnSignUp.setOnClickListener(this);
     }
 
     private void validar_usuarios(String URL){
-        String User_Email = etLogin_Email.getText().toString().trim();
-        String User_Pass = etLogin_Pass.getText().toString().trim();
+        String User_Email = etLogin_Email.getEditText().getText().toString().trim();
+        String User_Pass = etLogin_Pass.getEditText().getText().toString().trim();
 
         if(User_Email.isEmpty()){
             etLogin_Email.setError("Ingrese Correo");
@@ -55,8 +56,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(String response) {
                     try {
                         JSONObject login = new JSONObject(response);
-                        String emailUser = login.getString("correo");
-                        String passwordUser = login.getString("contraseña");
+                        String emailUser = login.getString("email");
+                        String passwordUser = login.getString("password");
                         if (emailUser.equals(User_Email) && passwordUser.equals(User_Pass)) {
                             Intent inicio_activity = new Intent(LoginActivity.this, Inicio_Prueba.class);
                             startActivity(inicio_activity);
@@ -94,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 validar_usuarios("http://192.168.1.74/drivus_app_php/login.php");
                 break;
 
-            case R.id.txtRegistrar:
+            case R.id.btnSignUp:
                 Intent registro_activity = new Intent(LoginActivity.this, Registro_Nombre.class);
                 startActivity(registro_activity);
                 break;

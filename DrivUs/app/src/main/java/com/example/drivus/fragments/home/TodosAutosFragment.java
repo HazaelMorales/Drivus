@@ -90,7 +90,7 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
     public void onResponse(JSONObject response) {
         elementos_listas_carros autos = null;
 
-        JSONArray json_array = response.optJSONArray("veiculos");
+        JSONArray json_array = response.optJSONArray("vehiculos");
 
         try {
             for (int i=0; i<json_array.length();i++){
@@ -104,7 +104,7 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
                 autos.setColor(jsonObject.optString("color"));
                 autos.setPlacas(jsonObject.optString("placas"));
                 autos.setAnioo(jsonObject.optString("año"));
-                autos.setKilometraje(jsonObject.optString("kilometraje")+"Km/h");
+                autos.setKilometraje(jsonObject.optString("velocidad")+"Km/h");
                 autos.setPrecio("$"+ jsonObject.optString("precio"));
                 autos.setDato(jsonObject.optString("imagen"));
                 elementos_carros.add(autos);
