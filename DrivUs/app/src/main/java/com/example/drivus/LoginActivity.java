@@ -65,13 +65,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Toast.makeText(LoginActivity.this, "Usuario o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
-                        e.printStackTrace();
+                        Toast.makeText(LoginActivity.this, "Usuario o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Usuario o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                 }
             }) {
                 @Override

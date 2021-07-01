@@ -60,11 +60,10 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imagen_auto"
+            android:id="@+id/imagen_auto_2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_gravity="center"
-            app:srcCompat="@mipmap/boton_confirmar"/>
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,7 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -165,7 +164,7 @@
                     android:id="@+id/auto_cambios"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
@@ -191,7 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -221,7 +220,7 @@
                     android:id="@+id/auto_combustible"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
@@ -247,7 +246,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -277,7 +276,7 @@
                     android:id="@+id/auto_aire_acondicionado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
@@ -303,7 +302,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -333,7 +332,7 @@
                     android:id="@+id/auto_puertas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
@@ -358,11 +357,11 @@
                     android:id="@+id/auto_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
-                    android:text="-" />
+                    android:text="-"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -383,6 +382,7 @@
                 android:textSize="20dp" />
 
             <TextView
+                android:id="@+id/auto_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -390,8 +390,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="-"
-                android:textColor="@color/color_informacion_del_vehiculo"
-                android:textSize="20dp" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/button_rentar"

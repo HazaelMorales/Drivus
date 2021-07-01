@@ -16,6 +16,12 @@ public class elementos_listas_carros {
     public String kilometraje;
     public String combustible;
     public String cambios;
+    public String aire;
+    public String asientos;
+    public String puertas;
+    public String motor;
+    public String bolsa;
+    public String descripcion;
     public String status;
     public String hora;
     public String fecha;
@@ -167,7 +173,52 @@ public class elementos_listas_carros {
         this.fecha = fecha;
     }
 
+    public String getAire() {
+        return aire;
+    }
 
+    public void setAire(String aire) {
+        this.aire = aire;
+    }
+
+    public String getAsientos() {
+        return asientos;
+    }
+
+    public void setAsientos(String asientos) {
+        this.asientos = asientos;
+    }
+
+    public String getPuertas() {
+        return puertas;
+    }
+
+    public void setPuertas(String puertas) {
+        this.puertas = puertas;
+    }
+
+    public String getMotor() {
+        return motor;
+    }
+
+    public void setMotor(String motor) {
+        this.motor = motor;
+    }
+
+    public String getBolsa() {
+        return bolsa;
+    }
+
+    public void setBolsa(String bolsa) {
+        this.bolsa = bolsa;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
 
 }

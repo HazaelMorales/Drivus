@@ -21,10 +21,11 @@ import com.android.volley.toolbox.Volley;
 import java.lang.annotation.Native;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> implements View.OnClickListener{
     List<elementos_listas_carros> mData;
     RequestQueue request;
     Context context;
+    private View.OnClickListener listener;
 
     public ListAdapter(List<elementos_listas_carros> listaCarros, Context context){
         this.mData = listaCarros;
@@ -41,6 +42,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.elementos_listas_carros,parent, false );
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
+        view.setOnClickListener(this);
         return new ListAdapter.ViewHolder(view);
     }
 
@@ -84,7 +86,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imagenCarro;
         TextView nombre,precio,año,combustible,cambios,kilometraje;
-        Button btnDatosAuto;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -95,7 +96,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             combustible  = (TextView) itemView.findViewById(R.id.auto_combustible);
             cambios = (TextView) itemView.findViewById(R.id.auto_cambios);
             kilometraje = (TextView) itemView.findViewById(R.id.auto_kilometraje);
-            btnDatosAuto = (Button) itemView.findViewById(R.id.button_rentar);
         }
     }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (listener!=null){
+            listener.onClick(v);
+        }
+    }
+
+
 }

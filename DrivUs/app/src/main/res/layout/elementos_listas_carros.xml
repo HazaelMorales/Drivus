@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
 
             <ImageView
                 android:id="@+id/imagen_auto"
@@ -124,15 +125,6 @@
                     android:textColor="@color/white"
                     android:text="-" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/button_rentar"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Rentar"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </RelativeLayout>
 

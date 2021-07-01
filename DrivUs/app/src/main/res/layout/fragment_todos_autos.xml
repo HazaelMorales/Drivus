@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/mostrar_autos"
     tools:context=".fragments.home.TodosAutosFragment">
 
     <androidx.recyclerview.widget.RecyclerView
