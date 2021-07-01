@@ -65,8 +65,7 @@ public class AutosRecomendadosFragment extends Fragment implements Response.Erro
         progress.setMessage("Consultando...");
         progress.show();
 
-        String url = "http://192.168.1.74/drivus_app_php/consulta_veiculos_recomendados.php";
-
+        String url = "https://drivussystem.000webhostapp.com/drivus_php_app/consulta_vehiculos_recomendados.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
 
         requestQueue.add(jsonObjectRequest);
@@ -84,7 +83,7 @@ public class AutosRecomendadosFragment extends Fragment implements Response.Erro
     public void onResponse(JSONObject response) {
         elementos_listas_carros autos = null;
 
-        JSONArray json_array = response.optJSONArray("veiculos");
+        JSONArray json_array = response.optJSONArray("vehiculos");
 
         try {
             for (int i=0; i<json_array.length();i++){
@@ -94,17 +93,15 @@ public class AutosRecomendadosFragment extends Fragment implements Response.Erro
 
                 autos.setId(jsonObject.optString("id"));
                 autos.setNombre(jsonObject.optString("modelo"));
-                autos.setMarca(jsonObject.optString("marca"));
-                autos.setColor(jsonObject.optString("color"));
-                autos.setPlacas(jsonObject.optString("placas"));
-                autos.setAnioo(jsonObject.optString("año"));
-                autos.setKilometraje(jsonObject.optString("kilometraje")+"Km/h");
                 autos.setPrecio("$"+ jsonObject.optString("precio"));
-                autos.setDato(jsonObject.optString("imagen"));
+                autos.setAnioo(jsonObject.optString("year"));
+                autos.setCambios(jsonObject.optString("cambio"));
+                autos.setKilometraje(jsonObject.optString("velocidad")+"Km/h");
+                autos.setRutaImagen(jsonObject.optString("url_imagen"));
                 elementos_carros.add(autos);
             }
             progress.hide();
-            ListAdapter adapter = new ListAdapter(elementos_carros);
+            ListAdapter adapter = new ListAdapter(elementos_carros, getContext());
             recyclerViewAutosRecomendados.setAdapter(adapter);
 
         }catch (JSONException e) {

@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btnLogin:
-                validar_usuarios("http://192.168.1.74/drivus_app_php/login.php");
+                validar_usuarios("https://drivussystem.000webhostapp.com/drivus_php_app/login.php");
                 break;
 
             case R.id.btnSignUp:

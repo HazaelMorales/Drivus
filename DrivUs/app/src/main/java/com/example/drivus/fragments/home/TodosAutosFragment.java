@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -41,11 +42,9 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
     ProgressDialog progress;
 
 
-
     public TodosAutosFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,10 +70,8 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
         progress.setMessage("Consultando...");
         progress.show();
 
-        String url = "http://192.168.1.74/drivus_app_php/mostrar_vehiculos.php";
-
+        String url = "https://drivussystem.000webhostapp.com/drivus_php_app/consulta_vehiculos.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-
         requestQueue.add(jsonObjectRequest);
     }
 
@@ -91,7 +88,6 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
         elementos_listas_carros autos = null;
 
         JSONArray json_array = response.optJSONArray("vehiculos");
-
         try {
             for (int i=0; i<json_array.length();i++){
                 autos = new elementos_listas_carros();
@@ -100,17 +96,16 @@ public class TodosAutosFragment extends Fragment implements Response.ErrorListen
 
                 autos.setId(jsonObject.optString("id"));
                 autos.setNombre(jsonObject.optString("modelo"));
-                autos.setMarca(jsonObject.optString("marca"));
-                autos.setColor(jsonObject.optString("color"));
-                autos.setPlacas(jsonObject.optString("placas"));
-                autos.setAnioo(jsonObject.optString("año"));
-                autos.setKilometraje(jsonObject.optString("velocidad")+"Km/h");
                 autos.setPrecio("$"+ jsonObject.optString("precio"));
-                autos.setDato(jsonObject.optString("imagen"));
+                autos.setAnioo(jsonObject.optString("year"));
+                autos.setCombustible(jsonObject.optString("Combustible"));
+                autos.setCambios(jsonObject.optString("cambio"));
+                autos.setKilometraje(jsonObject.optString("velocidad")+"Km/h");
+                autos.setRutaImagen(jsonObject.optString("url_imagen"));
                 elementos_carros.add(autos);
             }
             progress.hide();
-            ListAdapter adapter = new ListAdapter(elementos_carros);
+            ListAdapter adapter = new ListAdapter(elementos_carros, getContext());
             recyclerViewTodosAutos.setAdapter(adapter);
 
         }catch (JSONException e) {

@@ -23,8 +23,7 @@
                 android:id="@+id/imagen_auto"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_gravity="center"
-                app:srcCompat="@mipmap/boton_confirmar"/>
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/auto_nombre"
@@ -55,22 +54,35 @@
                 android:animateLayoutChanges="true"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_calendario"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"/>
+
                 <TextView
                     android:id="@+id/auto_año"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-"/>
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_velocidad"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"/>
                 <TextView
                     android:id="@+id/auto_kilometraje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -82,22 +94,32 @@
                 android:animateLayoutChanges="true"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_combustible"
+                    android:layout_marginLeft="20dp"/>
+
                 <TextView
                     android:id="@+id/auto_combustible"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_cambios"
+                    android:layout_marginLeft="20dp"/>
 
                 <TextView
                     android:id="@+id/auto_cambios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
                     android:text="-" />
@@ -109,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Rentar"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </RelativeLayout>
