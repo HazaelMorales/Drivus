@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".renta_auto_licencia"
+    android:background="@color/background_drivus_home">
+
+
+    <ImageView
+        android:id="@+id/ic_licencia"
+        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/txt_licencia"
+        android:src="@drawable/ic_licencia"/>
+
+    <TextView
+        android:id="@+id/txt_licencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Registrar Licencia"
+        android:textSize="25dp"
+        android:textColor="@color/white" />
+
+
+
+    <Button
+        android:id="@+id/btn_Licencia"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Subir Licencia"
+        android:layout_marginTop="60dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/ic_licencia"/>
+
+
+</RelativeLayout>

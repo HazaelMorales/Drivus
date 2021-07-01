@@ -1,5 +1,6 @@
 package com.example.drivus;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentResultListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,6 +29,8 @@ import org.jetbrains.annotations.NotNull;
 public class Datos_Autos extends Fragment {
     TextView txt_nombre_auto,txt_marca_auto,txt_precio_auto,txt_year_auto,txt_cambios_auto,txt_combustible_auto,txt_aire_auto,txt_puertas_auto,txt_velocidad_auto,txt_motor_auto,txt_asientos_auto,txt_bolsa_auto,txt_color_auto,txt_descripcion_auto;
     ImageView img_auto;
+    RequestQueue request;
+    Button btnRentar;
     public Datos_Autos() {
         // Required empty public constructor
     }
@@ -68,6 +73,7 @@ public class Datos_Autos extends Fragment {
                 txt_color_auto.setText(color_Auto);
                 txt_descripcion_auto.setText(descripcion_auto);
 
+                request = Volley.newRequestQueue(getContext());
                 if(url_imagen_Auto!=null){
                     //holder.imagenCarro.setImageBitmap(mData.get(position).getImagen());
                     cargarImagenAuto(url_imagen_Auto);
@@ -83,7 +89,18 @@ public class Datos_Autos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_datos__autos, container, false);
+        View view = inflater.inflate(R.layout.fragment_datos__autos, container, false);
+
+        btnRentar = (Button) view.findViewById(R.id.button_rentar);
+        btnRentar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), renta_auto_licencia.class);
+                startActivity(i);
+            }
+        });
+
+        return view;
     }
 
     @Override
@@ -121,6 +138,6 @@ public class Datos_Autos extends Fragment {
                 Toast.makeText(getContext(),"Error al cargar la imagen",Toast.LENGTH_LONG).show();
             }
         });
-        
+        request.add(imageRequest);
     }
 }

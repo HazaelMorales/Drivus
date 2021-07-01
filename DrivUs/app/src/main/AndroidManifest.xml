@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DrivUs"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".Inicio_Prueba"/>
+        <activity android:name=".renta_auto_licencia"></activity>
+        <activity android:name=".Inicio_Prueba" />
         <activity android:name=".Registro_Direccion" />
         <activity android:name=".RegistroFinalUsuarioEmail" />
         <activity android:name=".Registro_Telefono" />
@@ -24,9 +24,10 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

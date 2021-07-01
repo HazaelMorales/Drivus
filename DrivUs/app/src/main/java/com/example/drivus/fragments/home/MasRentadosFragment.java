@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.drivus.Datos_Autos;
 import com.example.drivus.ListAdapter;
 import com.example.drivus.R;
 import com.example.drivus.elementos_listas_carros;
@@ -93,16 +95,71 @@ public class MasRentadosFragment extends Fragment implements Response.ErrorListe
 
                 autos.setId(jsonObject.optString("id"));
                 autos.setNombre(jsonObject.optString("modelo"));
+                autos.setMarca(jsonObject.optString("marca"));
                 autos.setPrecio("$"+ jsonObject.optString("precio"));
                 autos.setAnioo(jsonObject.optString("year"));
+                autos.setCombustible(jsonObject.optString("Combustible"));
                 autos.setCambios(jsonObject.optString("cambio"));
                 autos.setKilometraje(jsonObject.optString("velocidad")+"Km/h");
+                autos.setMotor(jsonObject.optString("motor"));
+                autos.setAsientos(jsonObject.optString("asientos"));
+                autos.setAire(jsonObject.optString("aire_acondicionado"));
+                autos.setBolsa(jsonObject.optString("bolsa_aire"));
+                autos.setPuertas(jsonObject.optString("puertas"));
+                autos.setColor(jsonObject.optString("color"));
+                autos.setDescripcion(jsonObject.optString("descripcion"));
                 autos.setRutaImagen(jsonObject.optString("url_imagen"));
                 elementos_carros.add(autos);
             }
             progress.hide();
             ListAdapter adapter = new ListAdapter(elementos_carros, getContext());
             recyclerViewAutosMasRentados.setAdapter(adapter);
+            adapter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v){
+                    String id_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getId();
+                    String nombre_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getNombre();
+                    String marca_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getMarca();
+                    String precio_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getPrecio();
+                    String url_imagen_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getRutaImagen();
+                    String year_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getAnioo();
+                    String cambios_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getCambios();
+                    String combustible_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getCombustible();
+                    String aire_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getAire();
+                    String puertas_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getPuertas();
+                    String velocidad_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getKilometraje();
+                    String motor_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getMotor();
+                    String asientos_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getAsientos();
+                    String bolsa_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getBolsa();
+                    String color_Auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getColor();
+                    String descripcion_auto = elementos_carros.get(recyclerViewAutosMasRentados.getChildAdapterPosition(v)).getDescripcion();
+
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id_auto",id_Auto);
+                    bundle.putString("nombre_auto",nombre_Auto);
+                    bundle.putString("marca_auto",marca_Auto);
+                    bundle.putString("precio_auto",precio_Auto);
+                    bundle.putString("url_auto",url_imagen_Auto);
+                    bundle.putString("year_auto",year_Auto);
+                    bundle.putString("cambios_auto",cambios_Auto);
+                    bundle.putString("combustible_auto",combustible_Auto);
+                    bundle.putString("aire_auto",aire_Auto);
+                    bundle.putString("puertas_auto",puertas_Auto);
+                    bundle.putString("velocidad_auto",velocidad_Auto);
+                    bundle.putString("motor_auto",motor_Auto);
+                    bundle.putString("asientos_auto",asientos_Auto);
+                    bundle.putString("bolsa_auto",bolsa_Auto);
+                    bundle.putString("color_auto",color_Auto);
+                    bundle.putString("descripcion_auto",descripcion_auto);
+                    getParentFragmentManager().setFragmentResult("info_autos",bundle);
+
+                    Datos_Autos datos_autos = new Datos_Autos();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment_inicio,datos_autos);
+                    transaction.commit();
+                }
+            });
 
         }catch (JSONException e) {
             e.printStackTrace();
